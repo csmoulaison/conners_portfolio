@@ -136,7 +136,7 @@ li:hover div img {
     align-items: first-baseline;
     gap: 16px;
 
-    height: 700px;
+    height: 660px;
 }
 
 .split-grid-3 h2 {
