@@ -478,6 +478,7 @@ footer {
 
         <div>
             <h2>What have I made?</h2>
+            <ul>
                 <li>
                     <div>
                         <h3>Crumble King (Arcade Game)</h3>
@@ -525,6 +526,7 @@ footer {
                     </div>
                     <p>CLI DM helper app for D&D in C#, unfinished Roguelike in C, practice projects in C/C++ such as Snake and Asteroids</p>
                 </li>
+            </ul>
         </div>
 
         
