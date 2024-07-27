@@ -41,7 +41,7 @@
 }
 
 :global(.bg-img) {
-    background-image: url("background.jpg");
+    background-image: url($lib/background.jpg);
     background-size: cover;
     background-position: center;
     mix-blend-mode: screen;
