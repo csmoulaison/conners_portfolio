@@ -12,13 +12,15 @@
     --body-mid-color: rgba(150, 155, 145, 1);
     --unhovered-link-color: var(--body-mid-color);
     --background-color: rgba(16, 20, 22, 1);
-    --background-off-color: rgba(40, 44, 46, 0.2);
-    --background-off-lighter-color: rgba(60, 60, 60, 0.6);
+    --background-off-color: rgba(40, 44, 46, 0.4);
+    --background-off-lighter-color: rgba(60, 60, 60, 1);
 
     color: var(--body-main-color);
     background-color: var(--background-color);
     font-family: "Inter", sans-serif;
     font-weight: normal;
+
+
 }
 
 :global(::selection) {
@@ -41,20 +43,15 @@
 }
 
 :global(.bg-img) {
-    background-image: url("background.jpg");
-    background-size: cover;
+    background-image: url("grain.png");
+    background-size: tiled;
     background-position: center;
     mix-blend-mode: screen;
-    position: fixed;
+    position: absolute;
     height: 100%;
     width: 100%;
     z-index: -1;
-    opacity: 0.3;
-
-    filter: blur(4px);
-
-    margin: 0;
-    padding: 0;
+    opacity: 0.15;
 }
 
 a {
@@ -101,7 +98,6 @@ li {
 
 <div class='bg-img'></div>
 
-<!--
 <nav>
     <ul>
         <li><a>Conner Moulaison</a></li>
@@ -110,6 +106,5 @@ li {
         <li><a>Contact</a></li>
     </ul>
 </nav>
--->
 
 <slot></slot>

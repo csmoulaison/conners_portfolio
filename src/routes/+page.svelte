@@ -5,7 +5,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 h1, h2, h3 {
@@ -23,7 +22,7 @@ h1 {
 
 h2 {
     font-size: 48px;
-    margin: 128px 0;
+    margin: 12px 0;
 }
 
 h3 {
@@ -37,7 +36,7 @@ h3 {
     gap: 32px;
     width: 75ch;
 
-    margin: 256px 0;
+    margin: 200px 0;
 }
 
 .hello-conner p {
@@ -79,7 +78,7 @@ h3 {
 
 p {
     font-size: 20px;
-    margin: 8px 0;
+    margin: 12px 0;
 }
 
 ul {
@@ -90,16 +89,44 @@ ul {
 }
 
 li {
-    border: 3px dashed var(--background-off-lighter-color);
-    background-color: var(--background-off-color);
-
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--background-off-lighter-color);
 
     padding: 16px;
-    border-radius: 16px;
+    border-radius: 0;
+
+    backdrop-filter: blur(4px);
 
     margin: 16px 0;
+
+    max-height: 23px;
+    overflow: hidden;
+
+    transition: all 0.15s linear;
+}
+
+li:hover {
+    max-height: 160px;
+
+    border-style: solid;
+    background-color: var(--background-off-color);
+
+    cursor: default;
+}
+
+li div {
+    display: grid;
+    grid-template-columns: 1fr 24px;
+
+}
+
+li div img {
+    transition: all 0.05s linear;
+    opacity: 0.25;
+}
+
+li:hover div img {
+    opacity: 0%;
+    transform: translateY(24px);
 }
 
 .split-grid-3 {
@@ -107,15 +134,9 @@ li {
     width: 125ch;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: first-baseline;
-    gap: 64px;
-}
+    gap: 16px;
 
-.split-grid-2 {
-    display: grid;
-    width: 125ch;
-    grid-template-columns: 1fr 1fr;
-    align-items: first-baseline;
-    gap: 64px;
+    height: 700px;
 }
 
 .split-grid-3 h2 {
@@ -124,17 +145,69 @@ li {
     margin: 0;
 }
 
-a {
-    color: var(--body-main-color);
+.split-grid-2 {
+    display: grid;
+    width: 125ch;
+    grid-template-columns: 1fr 1fr;
+    align-items: first-baseline;
+    gap: 48px;
+}
+
+.split-grid-2 h2 {
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: 26px;
     font-weight: bold;
+}
+
+.split-grid-2 h3 {
+    padding: 48px 0;
+    color: var(--body-mid-color);
+
+    transition: all 0.25s;
+}
+
+.split-grid-2 h3:hover {
+    padding: 56px 0;
+    color: var(--body-main-color);
+    cursor: default;
+}
+
+.left-arrow {
+    display: inline-block;
+    padding-right: 2px;
+
+    transition: all 0.25s;
+}
+
+.split-grid-2 h3:hover .left-arrow {
+    transform: translateX(-4px);
+
+    transition: all 0.25s;
+}
+
+.split-grid-2 p {
+    margin-top: 12px;
+}
+
+a {
+    color: var(--body-mid-color);
+    font-weight: bold;
+
+    transition: all 0.15s linear;
+}
+
+a:hover {
+    color: var(--body-main-color);
 }
 
 .arrow {
     display: inline-block;
     transform: translateX(2px);
 
-    transition: all 0.25s;
+    transition: all 0.1s linear;
 }
+
 
 a:hover .arrow {
     transform: translateX(6px);
@@ -145,19 +218,54 @@ a:hover .arrow {
     flex-direction: column;
     gap: 8px;
 
+    border: 3px solid var(--background-off-lighter-color);
     background-color: var(--background-off-color);
-    padding: 16px;
+    padding: 0px;
     border-radius: 16px;
+
+    overflow: hidden;
 }
 
 .example-card img {
     width: 100%;
     object-fit: cover;
-    border-radius: 16px;
 }
 
 .example-card p {
     margin: 0;
+}
+
+.example-header {
+    margin-bottom: 24px;
+}
+
+.example-header span {
+font-family: "Inter";
+    color: var(--body-mid-color);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.example-selector {
+    font-weight: bold;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 8px;
+    color: var(--background-off-lighter-color);
+}
+
+.example-selector span {
+    padding: 8px;
+    transition: all 0.25s;
+}
+
+.example-selector span:hover {
+    color: var(--body-mid-color);
+    cursor: pointer;
+}
+
+.example-selector span.active {
+    color: var(--body-mid-color);
 }
 
 .slide-bottom {
@@ -173,6 +281,83 @@ a:hover .arrow {
     }
 }
 
+footer {
+    margin-bottom: 200px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+@media only screen and (max-width: 1020px) {
+    main {
+        margin: 0 12px;
+    }
+
+    .hello-conner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hello-conner p, .hello-conner h1 {
+        animation-name: mobileslideup;
+    }
+
+    @keyframes mobileslideup {
+        from {
+            opacity: 0%;
+            transform: translateY(16px);
+        }
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        margin: auto!important;
+        text-align: center;
+    }
+
+    .split-grid-3 {
+        width: 100%;
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    li {
+        max-height: unset;
+        border-style: solid;
+    }
+
+    footer {
+        margin: 64px 0;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    footer div {
+        display: none;
+    }
+
+    li div img {
+        opacity: 0%;
+    }
+}
+
+@media only screen and (max-width: 1400px) and (min-width:1021px) {
+    .split-grid-3 {
+        gap: 16px;
+        width: 100ch;
+    }
+
+    .split-grid-3 h3 {
+        font-size: 18px;
+    }
+}
+
+
 </style>
 
 <main>
@@ -180,90 +365,176 @@ a:hover .arrow {
         <img src='me.jpg' height='225px'>
         <div>
             <h1>Hi, I'm Conner.</h1>
-            <p>Freelance software developer based in Bellingham, WA, United States. <a href='/work'>See example work<span class='arrow'>-></span></a></p>
+            <p>Self-taught game developer based in Ferndale, WA, United States</p>
         </div>
     </div>
 
     <div class='split-grid-3 slide-bottom'>
         <div>
             <h2>Who am I?</h2>
-            <p>I have been programming personally for over a decade, and have worked professionally in an IT/developer role for over a year.</p>
-            <p>These experiences have shaped me in the following ways:</p>
             <ul>
                 <li>
-                    <h3>System Administrator for Barlean's Organic Oils, LLC</h3>
-                    <p>Oversaw the development of internal web applications and data integrations for the company.</p>
+                    <div>
+                        <h3>System Administrator</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Oversaw the development of internal web applications and data integrations for the company</p>
                 </li>
+
                 <li>
-                    <h3>Web Development Enthusiast</h3>
-                    <p>Functional, engaging design should help both businesses and customers, and developers have a responsibility to demonstrate excellence in their work.</p>
+                    <div>
+                        <h3>Game Developer</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Self-taught designer/programmer and deeply interested in the relationship between algorithms and gameplay constructs</p>
                 </li>
+
                 <li>
-                    <h3>Hobbyist Game Developer</h3>
-                    <p>My childhood passion is game development, and I've spent many years of my life doing it, programming games from scratch and learning how things work.</p>
+                    <div>
+                        <h3>Computer Enthusiast</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>I'm driven by curiosity about the way computers and software fundamentally work, both mechanically and philisophically</p>
+                </li>
+
+                <li>
+                    <div>
+                        <h3>Espresso Snob</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>If you must know, I'm currently loaded out with a Profitec GO and the Option-O Lagom Mini, and prefer light to medium roasts</p>
+                </li>
+
+                <li>
+                    <div>
+                        <h3>Lord of the Rings Guy</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>My favorite Vala is probably Ulmo, but I haven't thought about it in a while</p>
+                </li>
+
+                <li>
+                    <div>
+                        <h3>Modular Synth Programmer</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Well, I can dream, anyway</p>
                 </li>
             </ul>
         </div>
 
         <div>
-            <h2>How can I help you?</h2>
-            <p>Experience in a lead business technology position has honed my ability to identify both design and process improvements in the way businesses use technology.</p>
-            <p>Potential opportunites for me to help you or your business include:</p>
+            <h2>What do I know?</h2>
             <ul>
                 <li>
-                    <h3>Website development or improvements</h3>
-                    <p>Including visual/UX design or brand new functionality. I can be productive regardless of the site's underlying technology.</p>
+                    <div>
+                        <h3>C/C++</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>I love low level programming, and have written in the C family for video games and other projects</p>
                 </li>
+
                 <li>
-                    <h3>Process streamlining and automations</h3>
-                    <p>Digging into business processes and finding ways to improve them, including ERP systems, reporting, and Excel.</p>
+                    <div>
+                        <h3>Assembly</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Dabbled in 16-bit ASM for an arcade game project, and can read x86 ASM to optimize code</p>
                 </li>
+
                 <li>
-                    <h3>Data insight and integrations</h3>
-                    <p>Get your company data where and when you need it, and connect related services together such as your ERP system and ecommerce site.</p>
+                    <div>
+                        <h3>Python</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>I've found Python very useful for quick tooling, manipulating data to be used in game and work projects</p>
+                </li>
+
+                <li>
+                    <div>
+                        <h3>Excel</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Getting into Excel for quick management of data was a breakthrough for me both in work and personal projects. I'm handy with VBA, embarrasingly</p>
+                </li>
+
+                <li>
+                    <div>
+                        <h3>SQL</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>I use SQL almost every day in my System Administrator role to report on and manipulate business data</p>
+                </li>
+
+                <li>
+                    <div>
+                        <h3>Other</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>I've acquired a range of experience over the years, from SvelteKit web programming and Azure cloud services to exciting new niche languages like Odin</p>
                 </li>
             </ul>
         </div>
 
         <div>
-            <h2>What am I proficient in?</h2>
-            <p>Gained experience with the following technologies both at work and at home:</p>
-            <ul>
+            <h2>What have I made?</h2>
                 <li>
-                    <h3>Industry-standard web tech</h3>
-                    <p>Such as Wordpress, React, Svelte, Next.js, AWS, and Azure.</p>
+                    <div>
+                        <h3>Crumble King (Arcade Game)</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Written in Odin (C-like language) using SDL 2 and Miniaudio</p>
                 </li>
+
                 <li>
-                    <h3>Shopify</h3>
-                    <p>Ecommerce platform for businesses looking to sell product.</p>
+                    <div>
+                        <h3>Software Path Tracer</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Written in C and Win32 without math libraries, learning to use the profiler to effectively optimize code</p>
                 </li>
+
                 <li>
-                    <h3>Sage X3</h3>
-                    <p>ERP system for managing company processes and data.</p>
+                    <div>
+                        <h3>Vulkan Renderer</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Written in C++ and using SDL2 for windowing. Learned about GLSL and usage of fences and semaphores</p>
                 </li>
+
                 <li>
-                    <h3>Excel/VBA Extensions</h3>
-                    <p>Excel and Visual Basic scripting can help quickly and cheaply drive improvement.</p>
+                    <div>
+                        <h3>C Web Server</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Written in plain C and serves relatively simple HTML and CSS based on csv data for blog posts and the like</p>
                 </li>
+
                 <li>
-                    <h3>SQL and Other Data Queries</h3>
-                    <p>Data querying to efficiently build reports or gather ad-hoc insights.</p>
+                    <div>
+                        <h3>Cicero (Language)</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>Compiled programming language written in C. So far I've written a simple lexer and LR parser and translated to NASM for the backend</p>
                 </li>
-            </ul>
+
+                <li>
+                    <div>
+                        <h3>Other</h3>
+                        <img src='arrow.svg'>
+                    </div>
+                    <p>CLI DM helper app for D&D in C#, unfinished Roguelike in C, practice projects in C/C++ such as Snake and Asteroids</p>
+                </li>
         </div>
+
+        
     </div>
-    
-    <h2 class='my-work'>My Work</h2>
-    <div class='split-grid-2'>
-        <div class='example-card'>
-            <img src='portfolio.png' height='500px'>
-        </div>
 
-        <div>
-            <h3>Artist Portfolio for Hannah Rants</h3>
-            <p>A stunning design and insanely hot babe bring an air of intrigue to this cost effective site.</p>
-        </div>
-    </div>
-
-    <h2 class='outro'><a href='/contact'>Contact me</a> directly for a consultation. Thanks for stopping by!</h2>
+    <footer>
+        <a href="mailto:hello@connermoulaison.com">hello@connermoulaison.com</a>
+        <div>/</div>
+        <a href="tel:360-961-5549">360.961.5549</a>
+        <div>/</div>
+        <a href="/conner_moulaison_resume.pdf">see resume</a>
+    </footer>
 </main>
